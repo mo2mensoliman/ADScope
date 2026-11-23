@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="AdScope — a lightweight, open-source marketing performance calculator." />
+  <title>AdScope — Marketing Performance Toolkit</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="AdScope home"><span class="brand-mark">A</span><span>AdScope</span></a>
+      <span class="top-note">MARKETING PERFORMANCE TOOLKIT</span>
+    </header>
+    <section class="hero">
+      <div class="eyebrow">CAMPAIGN CALCULATOR <span class="dot"></span> FREE TOOL</div>
+      <h1>Know your numbers.<br /><em>Make better decisions.</em></h1>
+      <p>Enter campaign metrics to get a quick performance breakdown, efficiency metrics, and your break-even targets.</p>
+    </section>
+    <section class="calculator-grid">
+      <form class="input-panel" id="metricsForm">
+        <div class="panel-head"><h2>Campaign inputs</h2><button type="button" class="reset" id="resetBtn">Reset</button></div>
+        <div class="fields-grid">
+          <label>Ad spend <span class="field-hint">Currency</span><div class="input-wrap"><span class="prefix">$</span><input id="spend" type="number" min="0" step="0.01" value="1000" /></div></label>
+          <label>Revenue <span class="field-hint">Attributed sales</span><div class="input-wrap"><span class="prefix">$</span><input id="revenue" type="number" min="0" step="0.01" value="3500" /></div></label>
+          <label>Impressions <div class="input-wrap"><input id="impressions" type="number" min="0" step="1" value="100000" /></div></label>
+          <label>Clicks <div class="input-wrap"><input id="clicks" type="number" min="0" step="1" value="2200" /></div></label>
+          <label>Purchases / conversions <div class="input-wrap"><input id="conversions" type="number" min="0" step="1" value="70" /></div></label>
+          <label>Product margin <span class="field-hint">Before ad spend</span><div class="input-wrap"><input id="margin" type="number" min="0" max="100" step="0.1" value="40" /><span class="suffix">%</span></div></label>
+        </div>
+        <button class="primary-btn" type="submit">Calculate performance <span>↗</span></button>
+      </form>
+      <section class="results-panel" aria-live="polite">
+        <div class="panel-head"><h2>Performance overview</h2><span class="live-tag"><span></span> LIVE CALCULATION</span></div>
+        <div class="metric-grid">
+          <article class="metric-card featured"><div class="metric-label">ROAS</div><div class="metric-value" id="roas">3.50x</div><div class="metric-sub">Revenue ÷ ad spend</div></article>
+          <article class="metric-card"><div class="metric-label">CPA</div><div class="metric-value" id="cpa">$14.29</div><div class="metric-sub">Spend per conversion</div></article>
+          <article class="metric-card"><div class="metric-label">CTR</div><div class="metric-value" id="ctr">2.20%</div><div class="metric-sub">Clicks ÷ impressions</div></article>
+          <article class="metric-card"><div class="metric-label">CPC</div><div class="metric-value" id="cpc">$0.45</div><div class="metric-sub">Cost per click</div></article>
+          <article class="metric-card"><div class="metric-label">CPM</div><div class="metric-value" id="cpm">$10.00</div><div class="metric-sub">Cost per 1,000 impressions</div></article>
+          <article class="metric-card"><div class="metric-label">Conversion rate</div><div class="metric-value" id="cvr">3.18%</div><div class="metric-sub">Conversions ÷ clicks</div></article>
+          <article class="metric-card"><div class="metric-label">Break-even ROAS</div><div class="metric-value" id="beRoas">2.50x</div><div class="metric-sub">Based on product margin</div></article>
+          <article class="metric-card"><div class="metric-label">Break-even CPA</div><div class="metric-value" id="beCpa">$20.00</div><div class="metric-sub">AOV × product margin</div></article>
+        </div>
+        <div class="insight" id="insight"><span class="insight-icon">✦</span><div><strong>Performance insight</strong><p>Your ROAS is above the break-even target based on the margin entered.</p></div></div>
+      </section>
+    </section>
+    <footer><span>AdScope <span class="muted">· Open-source marketing tools</span></span><span>Built for marketers, by marketers.</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
